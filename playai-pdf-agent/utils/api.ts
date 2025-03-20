@@ -70,7 +70,7 @@ export interface TtsOptions {
   temperature?: number;
   speed?: number;
 }
-  
+
 // sends text to the api and gets back audio
 export async function generateSpeech({ text, voice, temperature = 0.5, speed = 1 }: TtsOptions): Promise<string> {
   const trimmedText = text.trim();

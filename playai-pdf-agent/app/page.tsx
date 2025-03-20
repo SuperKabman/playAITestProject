@@ -14,7 +14,6 @@ export default function Home() {
   // saves the file when user uploads it
   const handleFileUpload = useCallback((file: File) => {
     setSelectedFile(file);
-    // Reset extracted text when a new file is uploaded
     setExtractedText('');
   }, []);
   

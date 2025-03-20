@@ -195,7 +195,7 @@ export default function TextToSpeech({ text }: TextToSpeechProps) {
     isGenerating.current = true;
     
     try {
-      const textToRead = text || "Welcome to PlayAI PDF Reader. This is a demonstration of the text-to-speech functionality.";
+      const textToRead = text || "something was wrong with text extraction";
       const chunks = splitIntoChunks(textToRead, 150);
       
       if (chunks.length === 0) {
@@ -219,7 +219,6 @@ export default function TextToSpeech({ text }: TextToSpeechProps) {
     }
   };
 
-  // stops ongoing tts processing
   // const cancelGeneration = () => {
   //   shouldContinue.current = false;
   //   isGenerating.current = false;

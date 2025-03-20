@@ -126,7 +126,7 @@ export default function PDFViewer({ file, onTextExtracted }: PDFViewerProps) {
     if (!text) return [];
     
     const minChunkSize = 100;
-    const maxChunkSize = 200;
+    const maxChunkSize = 150;
     
     const cleanText = text.replace(/\s+/g, ' ').trim();
     
@@ -190,14 +190,13 @@ export default function PDFViewer({ file, onTextExtracted }: PDFViewerProps) {
       
     return chunks;
   };
-
+ 
   // stops ongoing audio and resets progress
   const handleReset = () => {
     setIsPlaying(false);
-    // Don't modify shouldContinueGenerating at all during reset
-    // shouldContinueGenerating.current = false; - removing this line
+
+    // shouldContinueGenerating.current = false; 
     
-    // Don't reset progress indicators either - just let the audio player go back to start
     // setProcessingProgress(0);
     // setProcessedChunks(0);
     // setTotalChunks(0);
