@@ -238,15 +238,35 @@ export default function AudioPlayer({
     const audio = audioRef.current;
     if (!audio) return;
     
-    isPlayingRef.current = false;
+    // Keep track of playing state before reset
+    const wasPlaying = isPlayingRef.current;
+    
+    // Pause temporarily
     audio.pause();
+    
+    // Reset position to beginning
     audio.currentTime = 0;
     
+    // Reset track to first one
     setCurrentTrackIndex(0);
     
+    // Update internal state
     setInternalIsPlaying(false);
+    
+    // Notify parent component
     if (onPlayPause) onPlayPause(false);
     if (onReset) onReset();
+    
+    // If we were playing before, resume after a short delay to allow state to update
+    if (wasPlaying) {
+      setTimeout(() => {
+        if (audioRef.current) {
+          setInternalIsPlaying(true);
+          if (onPlayPause) onPlayPause(true);
+          safePlay();
+        }
+      }, 50);
+    }
   };
 
   return (

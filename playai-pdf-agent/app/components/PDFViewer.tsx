@@ -194,10 +194,13 @@ export default function PDFViewer({ file, onTextExtracted }: PDFViewerProps) {
   // stops ongoing audio and resets progress
   const handleReset = () => {
     setIsPlaying(false);
-    shouldContinueGenerating.current = false;
-    setProcessingProgress(0);
-    setProcessedChunks(0);
-    setTotalChunks(0);
+    // Don't modify shouldContinueGenerating at all during reset
+    // shouldContinueGenerating.current = false; - removing this line
+    
+    // Don't reset progress indicators either - just let the audio player go back to start
+    // setProcessingProgress(0);
+    // setProcessedChunks(0);
+    // setTotalChunks(0);
   };
 
   // converts a chunk of text to speech

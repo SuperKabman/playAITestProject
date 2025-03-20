@@ -25,9 +25,9 @@ export default function Home() {
   }, []);
 
   // switches between pdf viewer implementations
-  const toggleViewer = useCallback(() => {
-    setUseAltViewer(prev => !prev);
-  }, []);
+  // const toggleViewer = useCallback(() => {
+  //   setUseAltViewer(prev => !prev);
+  // }, []);
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -58,17 +58,10 @@ export default function Home() {
             </div>
           </div>
           
-          {useAltViewer ? (
-            <PDFViewerAlt 
+          <PDFViewer 
               file={selectedFile} 
               onTextExtracted={handleTextExtracted}
             />
-          ) : (
-            <PDFViewer 
-              file={selectedFile} 
-              onTextExtracted={handleTextExtracted}
-            />
-          )}
         </div>
       )}
     </main>
