@@ -5,7 +5,7 @@ import { PLAYAI_VOICES, generateSpeech } from '../../utils/api';
 import AudioPlayer from './AudioPlayer';
 import VoiceSelector from './VoiceSelector';
 
-import { FiChevronLeft, FiChevronRight, FiPlay, FiLoader, FiPause, FiMic, FiMicOff } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiPlay, FiLoader, FiPause } from 'react-icons/fi';
 import { getDocument, PDFDocumentProxy } from 'pdfjs-dist/build/pdf';
 import 'pdfjs-dist/build/pdf.worker.entry';
 
@@ -151,7 +151,7 @@ export default function PDFViewer({ file, onTextExtracted }: PDFViewerProps) {
           currentChunk = '';
         }
         
-        let sentenceParts = [];
+        const sentenceParts = [];
         let start = 0;
         
         while (start < trimmedSentence.length) {

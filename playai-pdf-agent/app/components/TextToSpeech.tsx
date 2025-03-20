@@ -220,12 +220,12 @@ export default function TextToSpeech({ text }: TextToSpeechProps) {
   };
 
   // stops ongoing tts processing
-  const cancelGeneration = () => {
-    shouldContinue.current = false;
-    isGenerating.current = false;
-    setProcessingChunks(false);
-    setIsPlaying(false);
-  };
+  // const cancelGeneration = () => {
+  //   shouldContinue.current = false;
+  //   isGenerating.current = false;
+  //   setProcessingChunks(false);
+  //   setIsPlaying(false);
+  // };
 
   const progress = totalChunks > 0 ? Math.floor((currentChunk / totalChunks) * 100) : 0;
 
